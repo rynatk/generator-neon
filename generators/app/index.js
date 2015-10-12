@@ -61,7 +61,7 @@ module.exports = generators.Base.extend({
       'browser-sync',
       'browserify',
       'gulp',
-      'gulp-gh-pages',
+      'gh-pages',
       'gulp-sass',
       'vinyl-source-stream'
     ];
@@ -75,7 +75,7 @@ module.exports = generators.Base.extend({
       }
     );
 
-    this.npmInstall(['normalize.css', 'jquery', 'underscore', 'backbone'], { 'save': true });
+    this.npmInstall(['normalize.css', 'jquery', 'underscore', 'backbone', 'react', 'react-dom'], { 'save': true });
   },
 
   end: function() {

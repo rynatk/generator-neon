@@ -7,7 +7,7 @@ import sass from 'gulp-sass';
 <% if (includeJade) { -%>
 import jade from 'gulp-jade';
 <% } -%>
-import ghPages from 'gulp-gh-pages';
+import ghPages from 'gh-pages';
 
 const sync = browserSync.create();
 
@@ -59,8 +59,7 @@ gulp.task('styles', () => {
 gulp.task('build', ['html', 'script', 'styles']);
 
 gulp.task('deploy', ['build'], () => {
-  gulp.src('./dist/**/*')
-    .pipe(ghPages());
+  ghPages.publish('dist'));
 });
 
 gulp.task('serve', ['build'], () => {

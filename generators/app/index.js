@@ -25,6 +25,12 @@ module.exports = generators.Base.extend({
         }
       );
     },
+    babelrc: function() {
+      this.fs.copy(
+        this.templatePath('.babelrc'),
+        this.destinationPath('.babelrc')
+      );
+    },
     git: function() {
       this.fs.copy(
         this.templatePath('gitignore'),
@@ -57,13 +63,27 @@ module.exports = generators.Base.extend({
   install: function() {
     var devDependencies = [
       'babel-core',
+      'babel-plugin-transform-class-properties',
+      'babel-preset-es2015',
+      'babel-preset-react',
       'babelify',
+      'bootstrap-sass',
       'browser-sync',
       'browserify',
-      'gulp',
       'gh-pages',
+      'gulp',
       'gulp-sass',
+      'gulp-util',
       'vinyl-source-stream'
+    ];
+
+    var dependencies = [
+      'backbone',
+      'jquery',
+      'normalize.css',
+      'react',
+      'react-dom',
+      'underscore'
     ];
 
     if (this.includeJade)
@@ -75,7 +95,11 @@ module.exports = generators.Base.extend({
       }
     );
 
-    this.npmInstall(['normalize.css', 'jquery', 'underscore', 'backbone', 'react', 'react-dom'], { 'save': true });
+    this.npmInstall(
+      dependencies, {
+         'save': true
+      }
+    );
   },
 
   end: function() {

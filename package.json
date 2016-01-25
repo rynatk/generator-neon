@@ -1,16 +1,15 @@
 {
-  "name": "generator-momentum",
+  "name": "generator-neon",
   "version": "0.0.1",
-  "description": "Backbone-based webapp template with Sass",
+  "description": "minimum es6 development environment",
   "files": [
-    "app",
-    "router"
+    "app"
   ],
   "keywords": [
     "yeoman-generator"
   ],
-  "author": "Jason L Perry (Modified by Ryan Atkinson)",
-  "repository": "",
+  "author": "Ryan Atkinson",
+  "repository": "generator-neon",
   "license": "MIT",
   "dependencies": {
     "yeoman-generator": "^0.20.3"

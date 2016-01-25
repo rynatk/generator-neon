@@ -3,7 +3,7 @@ import babelify from 'babelify';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import browserSync from 'browser-sync';
-import sass from 'gulp-sass';
+import stylus from 'gulp-stylus';
 import ghPages from 'gh-pages';
 import gutil from 'gulp-util';
 
@@ -45,8 +45,8 @@ gulp.task('script', () => {
 });
 
 gulp.task('styles', ['fonts'], () => {
-  gulp.src('src/styles/**/*.{css,sass}')
-    .pipe(sass()
+  gulp.src('src/styles/**/*.{css,styl}')
+    .pipe(stylus()
       .on('error', (error) => {
         gutil.log(gutil.colors.red('Error: ' + error.message));
         gutil.beep();
@@ -82,7 +82,7 @@ gulp.task('serve', ['build'], () => {
 
   gulp.watch('src/**/*.{html,jade}', ['html']);
   gulp.watch('src/**/*.json', ['json']);
-  gulp.watch('src/**/*.{css,scss,sass}', ['styles']);
+  gulp.watch('src/**/*.{css,scss,sass,stylus}', ['styles']);
   gulp.watch('src/**/*.{js,jsx}', ['script']);
   gulp.watch('src/styles/images/*', ['images']);
 });

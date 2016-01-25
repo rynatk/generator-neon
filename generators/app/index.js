@@ -39,8 +39,8 @@ module.exports = generators.Base.extend({
     },
     styles: function() {
       this.fs.copy(
-        this.templatePath('screen.sass'),
-        this.destinationPath('src/styles/screen.sass')
+        this.templatePath('screen.styl'),
+        this.destinationPath('src/styles/screen.styl')
       );
     },
     scripts: function() {
@@ -65,25 +65,19 @@ module.exports = generators.Base.extend({
       'babel-core',
       'babel-plugin-transform-class-properties',
       'babel-preset-es2015',
-      'babel-preset-react',
       'babelify',
-      'bootstrap-sass',
       'browser-sync',
       'browserify',
       'gh-pages',
       'gulp',
-      'gulp-sass',
+      'gulp-stylus',
       'gulp-util',
       'vinyl-source-stream'
     ];
 
     var dependencies = [
-      'backbone',
       'jquery',
-      'normalize.css',
-      'react',
-      'react-dom',
-      'underscore'
+      'yeticss'
     ];
 
     if (this.includeJade)
